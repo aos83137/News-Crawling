@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import MyDateForm
 
-def getNewContents(news_link,keyword):
+def GetNewContents(news_link,keyword):
     print(news_link)
     response2 = requests.get(news_link)
     html2 = response2.text

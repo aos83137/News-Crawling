@@ -3,7 +3,7 @@ from tkinter.messagebox import *
 import MainCrawling as mc
 import GetData as gd
 import pickle
-from keywordModel import *
+from KeywordModel import *
 
 
 TITLE_FONT = ("Helvetica", 24, "bold")
@@ -13,7 +13,7 @@ BUTTON_FONT_2 = ("Helvetica", 14)
 class ScrawlingApp(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
-        self.title('News Scrawling')
+        self.title('News Crawling')
         self.geometry("1200x960")
         container = tk.Frame(self)
         container.pack(side="top", fill="both", expand=True)
@@ -53,7 +53,7 @@ class StartPage(tk.Frame):
 
         create_keyword_table()
 
-        label = tk.Label(self, text="News Scrawling", font=TITLE_FONT)
+        label = tk.Label(self, text="News Crawling", font=TITLE_FONT)
         settingButton = tk.Button(self, text="설정",
                                   command=lambda: controller.show_frame("Setting"))
         newsButton = tk.Button(self, text="뉴스 확인",

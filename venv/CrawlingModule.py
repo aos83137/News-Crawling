@@ -4,8 +4,8 @@ from datetime import datetime
 import pandas as pd
 from pathlib import Path
 import MyDateForm
-import checkingDate
-import getNewContents
+import CheckingDate
+import GetNewContents
 
 class md:
     # 뉴스의 날짜와 오늘날짜의 확인
@@ -44,8 +44,8 @@ class md:
                         newsDate=0
                         news_links.append(goToATages[atag]['href'])
                         newsDate = soup.select('.l > .txt > p > .d')[atag].text.split('（')[0]  # 월月일日추출
-                        if checkingDate.todayNews(newsDate):
-                            todayNewsCnt += checkingDate.todayNews(newsDate)
+                        if CheckingDate.todayNews(newsDate):
+                            todayNewsCnt += CheckingDate.todayNews(newsDate)
                         else:
                             return todayNewsCnt
 
@@ -78,12 +78,12 @@ class md:
             for atag in range(len(goToATages)):
                 news_links.append(goToATages[atag]['href'])
                 newsDate = soup.select('.l > .txt > p > .d')[atag].text.split('（')[0]  # 월月일日추출
-                if checkingDate.todayNews(newsDate):
-                    todayNewsCnt += checkingDate.todayNews(newsDate)
+                if CheckingDate.todayNews(newsDate):
+                    todayNewsCnt += CheckingDate.todayNews(newsDate)
                 else:
                     break
 
-                newsContents.append(getNewContents.getNewContents(news_links[atag + page - 1],self.keyword))
+                newsContents.append(GetNewContents.GetNewContents(news_links[atag + page - 1],self.keyword))
                 print(todayNewsCnt)
 
             ###이부분 해결하자
